@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 public class WhileLoops {
+    Scanner scan = new Scanner(System.in);
 
     /**
      * Usage examples:
@@ -11,7 +12,16 @@ public class WhileLoops {
      * @return A string consisting of either the range of numbers or Invalid Input
      */
     public static String fromHereToThere(int num1, int num2) {
-
+        Scanner scan = new Scanner(System.in);
+int a = scan.nextInt();
+int b = scan.nextInt();
+while (!(a ==  0 || b == 0)) {
+    int c = b - a;
+    int nums = 0;
+    while (nums < c) {
+        System.out.print(nums++);
+    }
+}
         return ""; // update or remove this line. It is only there so the tests do not show an error.
     }
 
