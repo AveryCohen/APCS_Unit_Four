@@ -12,17 +12,25 @@ public class WhileLoops {
      * @return A string consisting of either the range of numbers or Invalid Input
      */
     public static String fromHereToThere(int num1, int num2) {
-        Scanner scan = new Scanner(System.in);
-int a = scan.nextInt();
-int b = scan.nextInt();
-while (!(a ==  0 || b == 0)) {
-    int c = b - a;
-    int nums = 0;
-    while (nums < c) {
-        System.out.print(nums++);
+
+        String numbs = "";
+if (!(num1 == 0 || num2 == 0)) {
+    if (num1 < num2) {
+        int nums = num1;
+        while (nums <= num2) {
+            numbs += nums + " ";
+            nums ++;
+        }
+        return numbs;
+    }
+    else {
+        System.out.println("invalid input");
     }
 }
-        return ""; // update or remove this line. It is only there so the tests do not show an error.
+else {
+    System.out.println("invalid input");
+}
+return "";
     }
 
     /**
@@ -31,8 +39,23 @@ while (!(a ==  0 || b == 0)) {
      * @return - A string showing how many positive and negative numbers were entered by the user.
      */
     public static String countPosAndNeg() {
-
-        return ""; // update or remove this line. It is only there so the tests do not show an error.
+        Scanner scan = new Scanner(System.in);
+        System.out.print("Enter a positive or negative number or 0 to quit: ");
+        int num1 = scan.nextInt();
+        int countpos = 0;
+        int countneg = 0;
+        while (num1 != 0) {
+            if (num1 < 0) {
+                countneg++;
+            }
+            else if (num1 > 0) {
+                countpos++;
+            }
+            System.out.print("Enter a positive or negative number or 0 to quit: ");
+            num1 = scan.nextInt();
+        }
+        String finCount = "There were " + countpos + " positive and " + countneg + " negative numbers";
+        return finCount;
     }
 
     /**
