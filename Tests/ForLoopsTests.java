@@ -49,7 +49,7 @@ public class ForLoopsTests {
 //
 //    @Test
 //    void powerPositive() {
-//        int expected = 625;
+//        int expected = 15625;
 //        int actual = ForLoops.power(5, 6);
 //        assertEquals(expected, actual);
 //    }
