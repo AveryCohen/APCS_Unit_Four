@@ -28,13 +28,23 @@ public class Disemvoweling {
 
         return newString;
     }
+    public static double reductionRate(int initial, int fin) {
+        double reductionV1 = (1- ((double)fin)/((double)initial))*1000;
+        double reductionV2 = (int)reductionV1;
+        double reductionFinal = reductionV2/10;
+        return  reductionFinal;
+    }
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         System.out.println("Welcome to the disemvoweling utility.");
         System.out.print("Enter your phrase: ");
         String userInput = scan.nextLine();
+        int initial = userInput.length();
         String s = disemdouble(userInput);
         String newString = disemvowel(s);
+        int fin = newString.length();
+        double rate = reductionRate(initial, fin);
         System.out.println("The disemvoweled phrase is: " + newString);
+        System.out.println("Reduced from " + initial + " to " + fin + " characters.  Reduction rate of " + rate + "%");
     }
 }
