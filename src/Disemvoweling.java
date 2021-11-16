@@ -4,15 +4,20 @@ public class Disemvoweling {
     public static String disemdouble(String userInput) {
         String s = "";
 
-            for (int i = 0; i < userInput.length() - 2; i++) {
-                if (userInput.substring(i, i + 1).equals(userInput.substring(i + 1, i + 2))) {
+            for (int i = 0; i < userInput.length() - 1; i += 1) {
+                String a = userInput.substring(i, i + 1);
+                String b = userInput.substring(i + 1, i + 2);
+                if (a.equals(b)) {
                     s += userInput.substring(i, i + 1);
-                    i++;
+                    i += 1;
                 } else {
                     s += userInput.substring(i, i + 1);
                 }
             }
-            s += userInput.substring(userInput.length() - 2);
+            if (!(userInput.substring(userInput.length()-2, userInput.length()-1).equals(userInput.substring(userInput.length()-1, userInput.length())))) {
+                s += userInput.substring(userInput.length() - 1);
+            }
+
         return s;
     }
     public static String disemvowel(String s) {
@@ -40,11 +45,12 @@ public class Disemvoweling {
         System.out.print("Enter your phrase: ");
         String userInput = scan.nextLine();
         int initial = userInput.length();
-        String s = disemdouble(userInput);
-        String newString = disemvowel(s);
-        int fin = newString.length();
+        String s = disemvowel(userInput);
+        String newString = disemdouble(s);
+        String newNewString = disemdouble(newString);
+        int fin = newNewString.length();
         double rate = reductionRate(initial, fin);
-        System.out.println("The disemvoweled phrase is: " + newString);
+        System.out.println("The disemvoweled phrase is: " + newNewString);
         System.out.println("Reduced from " + initial + " to " + fin + " characters.  Reduction rate of " + rate + "%");
     }
 }
