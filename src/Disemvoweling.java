@@ -3,16 +3,16 @@ public class Disemvoweling {
 
     public static String disemdouble(String userInput) {
         String s = "";
-        for(int i=0; i<userInput.length(); i+=1) {
-            if (userInput.substring(i, i+1).equals(userInput.substring(i+1, i+2))) {
-                s += userInput.substring(i, i+1);
-                i++;
-            }
-            else {
-                s += userInput.substring(i, i+1);
-            }
-        }
 
+            for (int i = 0; i < userInput.length() - 2; i++) {
+                if (userInput.substring(i, i + 1).equals(userInput.substring(i + 1, i + 2))) {
+                    s += userInput.substring(i, i + 1);
+                    i++;
+                } else {
+                    s += userInput.substring(i, i + 1);
+                }
+            }
+            s += userInput.substring(userInput.length() - 2);
         return s;
     }
     public static String disemvowel(String s) {
