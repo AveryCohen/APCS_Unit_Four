@@ -68,10 +68,15 @@ public class WordAnalyzer
         int c = 0;
         for (int i = 1; i < word.length() - 1; i++)
         {
-            if (word.charAt(i) == word.charAt(i + 1)) // found a repetition
+            if (word.charAt(i) == word.charAt(i+1)) // found a repetition
             {
                 if (word.charAt(i - 1) != word.charAt(i)) // it's the start
                     c++;
+            }
+        }
+        if ((word.substring(word.length()-2, word.length()-1).equals(word.substring(word.length()-1, word.length())))) {
+            if(!(word.substring(word.length()-3, word.length()-2).equals(word.substring(word.length()-2, word.length()-1)))) {
+                c++;
             }
         }
         return c;
